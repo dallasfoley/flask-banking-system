@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS banking_system;
+USE banking_system;
+
 -- Drop tables if they exist (order matters due to foreign keys)
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS accounts;

@@ -23,3 +23,7 @@ def withdraw(account_id):
     data = request.json
     amount = data.get('amount')
     return jsonify(AccountService.withdraw(account_id, amount))
+
+@accounts_bp.route('/<account_id>/transactions', methods=['GET'])
+def get_transactions(account_id):
+    return jsonify(AccountService.get_transactions(account_id))

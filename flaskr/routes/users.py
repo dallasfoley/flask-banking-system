@@ -11,6 +11,6 @@ def get_all_users():
 def create_user():
     return jsonify(UserService.create_user(request.json)), 201
 
-@users_bp.route('/<int:user_id>', methods=['GET'])
+@users_bp.route('/<user_id>', methods=['GET'])
 def get_user(user_id):
     return jsonify(UserService.get_by_id(user_id))

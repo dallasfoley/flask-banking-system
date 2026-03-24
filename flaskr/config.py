@@ -3,20 +3,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-uri = os.getenv("DATABASE_URL")
-print("DB URI:", uri)  # temporary debug line
+uri = os.getenv("MONGO_URI") # temporary debug line
+
 
 class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    MONGO_URI = os.getenv("MONGO_URI")
+    MONGO_DBNAME = "banking_db"
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
 
 class ProductionConfig(Config):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
 
 config = {
     "development": DevelopmentConfig,
